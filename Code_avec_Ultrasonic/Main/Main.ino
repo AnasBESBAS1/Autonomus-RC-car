@@ -1,3 +1,5 @@
+// with ultrasonic sensors 
+
 #include <HCSR04.h>   // used to control HCSR04 Sensors.
 #include <IRremote.h> // used to control the IR reciver and remote.
 #include <Servo.h>    // used to control the motors.
@@ -109,6 +111,19 @@ void setup() {
 }
 
 
+/* 
+ the used  IR Remote is " Tsop 8m 38kHz 1838 Ir Transmetteur Arduino " 
+ if another remote is on use follow the next steps :
+ 1 - make sure to put all code line in the loop in comment exept for 
+  if (irrecv.decode(&results)) {
+    Serial.println(results.value, HEX);
+    irrecv.resume();
+    }
+ 2 - download the programe into the arduino
+ 3 - open serial monitor
+ 4 - get values from the monitor and replace them with the old ones
+
+*/
 void loop() {
   if (getTMP() > 45){ // IF MOTOR tmp is greater than 45 
     delay(60000); // sleep for 60 seconds
